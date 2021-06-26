@@ -1,4 +1,4 @@
-export default (state, action) => {
+export default function Reducer (state, action) {
   switch (action.type) {
     case "SET_INGREDIENTS":
       return {
@@ -11,9 +11,11 @@ export default (state, action) => {
         showSearchError: action.payload,
       };
     case "SET_HISTORY":
+      let historyItems = [...state.history, action.payload]
+      localStorage.setItem('ingredients', JSON.stringify(historyItems))
       return {
         ...state,
-        history: [action.payload, ...state.history],
+        history: historyItems,
       };
     case "SET_SHOW_HISTORY":
       return {

@@ -25,7 +25,7 @@ export const History = () => {
             <ListItem key={index} listStyleType="none" m="5px">
               <SearchIcon />
               <Button
-                onCListItemck={() => setIngredients(item)}
+                onClick={() => setIngredients(item)}
                 backgroundColor="white"
                 marginLeft="10px"
                 marginRight="10px"

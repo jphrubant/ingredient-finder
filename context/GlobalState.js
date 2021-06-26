@@ -9,7 +9,7 @@ const initialState = {
   history: [],
   showHistory: false,
   showSearchError: false,
-  isLoading: false
+  isLoading: false,
 };
 
 export const GlobalContext = createContext(initialState);
@@ -18,7 +18,7 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, initialState);
 
   const setIngredients = async (userInput) => {
-    toggleIsLoading(true)
+    toggleIsLoading(true);
     let res = await fetchIngredients(userInput);
 
     if (res.length > 0) {
@@ -26,14 +26,14 @@ export const GlobalProvider = ({ children }) => {
         type: "SET_INGREDIENTS",
         payload: res,
       });
-      toggleIsLoading(false)
+      toggleIsLoading(false);
       toggleSearchError(false);
     } else {
       dispatch({
         type: "SET_INGREDIENTS",
         payload: [],
       });
-      toggleIsLoading(false)
+      toggleIsLoading(false);
       toggleSearchError(true);
     }
   };
@@ -76,6 +76,7 @@ export const GlobalProvider = ({ children }) => {
         toggleSearchError,
         setHistory,
         showHistory,
+        toggleIsLoading
       }}
     >
       {children}

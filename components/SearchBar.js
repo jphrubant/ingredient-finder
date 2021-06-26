@@ -13,7 +13,6 @@ export const SearchBar = () => {
 
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
-      console.log(e);
       if (e.target.name !== formInput.current.name) showHistory(false);
     });
   });

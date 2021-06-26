@@ -1,12 +1,21 @@
 import Head from "next/head";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Flex, Box, Heading, Text } from "@chakra-ui/react";
 import { GlobalContext } from "./../context/GlobalState";
 import { SearchBar } from "./../components/SearchBar";
 import { Ingredient } from "./../components/Ingredient";
 
 export default function Home() {
-  const { state } = useContext(GlobalContext);
+  const { state, setHistory } = useContext(GlobalContext);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      let storedHistory = JSON.parse(localStorage.getItem("history"));
+      if(storedHistory !== null) setHistory(storedHistory);
+    } else {
+      console.log("we are running on the server");
+    }
+  }, []);
 
   return (
     <>
@@ -26,9 +35,9 @@ export default function Home() {
         </Heading>
         <SearchBar />
         <Flex maxW="70%" justifyContent="center" flexWrap="wrap">
-        {state.ingredients.map((ingredient) => {
-          return  <Ingredient key={ingredient.id} {...ingredient} />;
-        })}
+          {state.ingredients.map((ingredient) => {
+            return <Ingredient key={ingredient.id} {...ingredient} />;
+          })}
         </Flex>
         {state.isLoading ? (
           <Box>
