@@ -20,11 +20,11 @@ export default (state, action) => {
         ...state,
         showHistory: action.payload,
       };
-    // case 'DELETE_TRANSACTION':
-    //   return {
-    //     ...state,
-    //     transactions: state.transactions.filter(transaction => transaction.id !== action.payload)
-    //   }
+    case "TOGGLE_IS_LOADING":
+      return {
+        ...state,
+        isLoading: action.payload,
+      };
     default:
       return state;
   }

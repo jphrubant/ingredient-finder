@@ -9,6 +9,7 @@ const initialState = {
   history: [],
   showHistory: false,
   showSearchError: false,
+  isLoading: false
 };
 
 export const GlobalContext = createContext(initialState);
@@ -17,19 +18,22 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, initialState);
 
   const setIngredients = async (userInput) => {
-    let res = await fetchIngredients(userInput)
+    toggleIsLoading(true)
+    let res = await fetchIngredients(userInput);
 
     if (res.length > 0) {
       dispatch({
         type: "SET_INGREDIENTS",
         payload: res,
       });
+      toggleIsLoading(false)
       toggleSearchError(false);
     } else {
       dispatch({
         type: "SET_INGREDIENTS",
         payload: [],
       });
+      toggleIsLoading(false)
       toggleSearchError(true);
     }
   };
@@ -42,15 +46,24 @@ export const GlobalProvider = ({ children }) => {
   };
 
   const setHistory = (userInput) => {
-    dispatch({
-      type: "SET_HISTORY",
-      payload: userInput,
-    });
+    if (userInput !== "") {
+      dispatch({
+        type: "SET_HISTORY",
+        payload: userInput,
+      });
+    }
   };
 
   const showHistory = (bool) => {
     dispatch({
       type: "SET_SHOW_HISTORY",
+      payload: bool,
+    });
+  };
+
+  const toggleIsLoading = (bool) => {
+    dispatch({
+      type: "TOGGLE_IS_LOADING",
       payload: bool,
     });
   };
