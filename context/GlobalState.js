@@ -75,8 +75,7 @@ export const GlobalProvider = ({ children }) => {
         setIngredients,
         toggleSearchError,
         setHistory,
-        showHistory,
-        toggleIsLoading
+        showHistory
       }}
     >
       {children}
