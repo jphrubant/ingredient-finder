@@ -9,12 +9,8 @@ export default function Home() {
   const { state, setHistory } = useContext(GlobalContext);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      let storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
-      if(storedIngredients !== null) storedIngredients.forEach((ingredient) => setHistory(ingredient))
-    } else {
-      console.log("we are running on the server");
-    }
+    let storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
+    if(storedIngredients !== null) storedIngredients.forEach((ingredient) => setHistory(ingredient))
   }, []);
 
   return (
