@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       let storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
-      if(storedHistory !== null) storedIngredients.forEach((ingredient) => setHistory(ingredient))
+      if(storedIngredients !== null) storedIngredients.forEach((ingredient) => setHistory(ingredient))
     } else {
       console.log("we are running on the server");
     }
