@@ -11,7 +11,7 @@ export default function Reducer (state, action) {
         showSearchError: action.payload,
       };
     case "SET_HISTORY":
-      let historyItems = [...state.history, action.payload]
+      let historyItems = [action.payload, ...state.history]
       localStorage.setItem('ingredients', JSON.stringify(historyItems))
       return {
         ...state,

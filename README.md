@@ -2,9 +2,11 @@
 
 Ingredient Finder is a simple app to lookup ingredients built using Netx.js, Chakra UI and the Spoonacular API.
 
+The app uses local storage to store a user's search history.
+
 ## Running the app
 
-The app can be run in development using the command `npm run dev`
+Ingredient Finder can be run in development using the command `npm run dev`
 
 The app is also deployed via Netlify and [can be accessed here](https://wizardly-shirley-9d09d9.netlify.app/)
 
