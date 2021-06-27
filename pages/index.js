@@ -15,7 +15,7 @@ export default function Home() {
     } else {
       console.log("we are running on the server");
     }
-  }, []);
+  }, [setHistory]);
 
   return (
     <>
