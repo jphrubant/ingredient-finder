@@ -13,6 +13,7 @@ export default function Reducer (state, action) {
     case "SET_HISTORY":
       let historyItems = [...state.history, action.payload]
       localStorage.setItem('ingredients', JSON.stringify(historyItems))
+      console.log("window.localStorage", window.localStorage)
       return {
         ...state,
         history: historyItems,

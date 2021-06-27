@@ -11,6 +11,7 @@ export default function Home() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       let storedHistory = JSON.parse(localStorage.getItem("history"));
+      console.log("localStorage.getItem(history)", storedHistory)
       if(storedHistory !== null) setHistory(storedHistory);
     } else {
       console.log("we are running on the server");

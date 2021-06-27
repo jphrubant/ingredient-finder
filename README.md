@@ -6,13 +6,13 @@ Ingredient Finder is a simple app to lookup ingredients built using Netx.js, Cha
 
 The app can be run in development using the command `npm run dev`
 
-[link to app](https://react-redux-weather-app-jph.netlify.app/)
+The app is also deployed via Netlify and [can be accessed here](https://wizardly-shirley-9d09d9.netlify.app/)
 
 ## User Stories:
 
 - As a user I want to find a list of ingredients based on my query.
 - As a user I want to see my search history.
-- As a user I want to easily repeat previous searches
+- As a user I want to easily repeat previous searches.
 
 ## Backlog:
 
@@ -20,7 +20,7 @@ The app can be run in development using the command `npm run dev`
 
 ## Components:
 
-- Historu
+- History
 - Ingredient
 - SearchBar
 
