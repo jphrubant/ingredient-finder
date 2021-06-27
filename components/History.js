@@ -23,7 +23,6 @@ export const History = () => {
         {latestSearches.map((item, index) => {
           return (
             <ListItem key={index} listStyleType="none" m="5px">
-              <SearchIcon />
               <Button
                 onClick={() => setIngredients(item)}
                 backgroundColor="white"
@@ -31,6 +30,7 @@ export const History = () => {
                 marginRight="10px"
                 _hover={{ bg: "white", border: "none" }}
               >
+              <SearchIcon marginRight="15px"/>
                 {item}
               </Button>
             </ListItem>
