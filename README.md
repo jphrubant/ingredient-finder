@@ -1,6 +1,6 @@
 # Ingrerdient Finder
 
-Ingredient Finder is a simple app to lookup ingredients built using Netx.js, Chakra UI and the Spoonacular API.
+Ingredient Finder is a simple app to lookup ingredients built using Netx.js, ContextAPI, Chakra UI and the Spoonacular API.
 
 The app uses local storage to store a user's search history.
 
